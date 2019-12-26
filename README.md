@@ -124,6 +124,7 @@
 
 ## 系统功能说明
 界面由3大块组成：作战区、按钮区和战报区。其中只有按钮区可以点击。每个按钮都有对应的快捷键。
+![image](https://github.com/Sphinxxx1984/Java_Final_Project/blob/master/GUI.jpg)
 ### 作战区
 是一块画布，占据游戏UI的左上角，负责展示葫芦娃阵营和妖怪阵营的战斗。
 ### 按钮区
@@ -144,10 +145,13 @@
 ### 物体Item
 Item是游戏的基本单元，能在战场上展示的事物都属于Item。生物类**Creature**和子弹类**Bullet**都是Item的派生类。生物类**Creature**又派生出了不同的生物：葫芦娃**CalabashBoy**，爷爷**Grandfather**，妖怪**Lackey**，死亡生物**DeadCreature**。妖怪类**Lackey**又派生出了BOSS单位蛇精**Snake**和蝎子精**Scorpion**。
 
+![image](https://github.com/Sphinxxx1984/Java_Final_Project/blob/master/item.jpg)
 葫芦娃**CalabashBoy**和爷爷**Grandfather**聚合形成了葫芦娃阵营**CalabashCrew**，妖怪**Lackey**、蛇精**Snake**和蝎子精**Scorpion**聚合形成了妖怪阵营**MonsterCrew**。这两个阵营内部都有统计阵营生存数的方法、判断阵营是否全军覆没的方法和变阵的方法。
 ### 行为Behavior
 任意两个Item之间的交互，我称之为行为**Behavior**。
 一共包括四种行为：增益**Buff**、射击**Shoot**、子弹击中生物**Hit**、两个敌对阵营生物相遇**Meet**。
+
+![image](https://github.com/Sphinxxx1984/Java_Final_Project/blob/master/behavior.jpg)
 #### 增益Buff
 作为一个Interface。因为爷爷**Grandfather**的**Buff**和蛇精**Snake**的**Buff**有所不同，爷爷可以给葫芦娃提供生命增益和攻防增益，而蛇精只能提供生命增益。故具体的实现放在他们的类内部。体现了简单工厂模式。
 #### 射击Shoot
@@ -162,8 +166,12 @@ Item是游戏的基本单元，能在战场上展示的事物都属于Item。生
 战场**BattleField**由区块**Block**聚合而成。
 每个区块**Block**同一时刻只能被一个生物**Creature**占据（包括死亡生物**DeadCreature**）。
 如果一个生物试图进入一个被敌方阵营占据的区块，两者就会发生战斗相遇**Meet**。
+
+![image](https://github.com/Sphinxxx1984/Java_Final_Project/blob/master/battlefield.jpg)
 ### 战略Tactic
 作为一个Interface。运用了简单工厂模式：实现不同的Tactic，就能提供不同的阵型。
+
+![image](https://github.com/Sphinxxx1984/Java_Final_Project/blob/master/tactic.jpg)
 ### 属性Property
 其中子弹类型**BulletType**、葫芦娃属性**CalabashProperty**、子弹方向**Direction**和身份**Identity**都实现为枚举类型，为其他类提供参数。位置**Position**实现为一个类。
 #### 位置Position
