@@ -147,6 +147,8 @@ Item是游戏的基本单元，能在战场上展示的事物都属于Item。生
 
 ![image](https://github.com/Sphinxxx1984/Java_Final_Project/blob/master/item.jpg)
 葫芦娃**CalabashBoy**和爷爷**Grandfather**聚合形成了葫芦娃阵营**CalabashCrew**，妖怪**Lackey**、蛇精**Snake**和蝎子精**Scorpion**聚合形成了妖怪阵营**MonsterCrew**。这两个阵营内部都有统计阵营生存数的方法、判断阵营是否全军覆没的方法和变阵的方法。
+
+![image](https://github.com/Sphinxxx1984/Java_Final_Project/blob/master/crew.jpg)
 ### 行为Behavior
 任意两个Item之间的交互，我称之为行为**Behavior**。
 一共包括四种行为：增益**Buff**、射击**Shoot**、子弹击中生物**Hit**、两个敌对阵营生物相遇**Meet**。
@@ -403,6 +405,16 @@ public class Controller implements Initializable {
 ## 单元测试
 一共有5个负责进行单元测试的类：**TestBlock、TestCreature、TestHit、TestMeet、TestReplay**。
 
+TestBlock测试了生物体进入/撤出block；
+
+TestCreature测试了生物体移动/向中心移动/死亡判定；
+
+TestHit测试了生物体被子弹击中时扣取生命的数值是否正常；
+
+TestMeet测试了两个敌对阵营的生物体战斗的结果是否正确；
+
+TestReplay测试了无效的回放应当不能被加载。
+
 ## 面向对象思想的体现
 ### 抽象
 **我的实现中有两个抽象类：物品Item、生物体Creature。**
@@ -460,3 +472,10 @@ public class Block {
 增益**Buff**、射击**Shoot**和战略**TacticMaker**实现为接口Interface。不需要知道每个生物体/阵法的不同数值和实现，调用不同类的相应方法就可以产生不同的产品（不同的实现）。
 
 ## 心得和收获
+1.学会了构建工具maven的使用
+
+2.学会了单元测试的撰写方法
+
+3.学会了应用SOLID原则的面向对象程序设计方式
+
+4.设计一个能按照需要运行的程序很容易，但是设计一个复用性好、可拓展性好、线程安全、健壮的程序很难
